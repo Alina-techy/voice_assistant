@@ -9,7 +9,7 @@ engine = pyttsx3.init()
 def speak(text):
     engine.say(text)
     engine.runAndWait()
-    time.sleep(0.5)   # smooth gap after speaking
+    time.sleep(0.5)  
 
 def take_command():
     r = sr.Recognizer()
@@ -36,8 +36,7 @@ def run_assistant():
 
         if command == "none":
             continue
-
-        # ✅ Websites
+        
         if "youtube" in command:
             speak("Opening YouTube")
             webbrowser.open("https://www.youtube.com")
@@ -54,7 +53,6 @@ def run_assistant():
             speak("Opening Roblox")
             webbrowser.open("https://www.roblox.com")
 
-        # ✅ Apps (dynamic)
         elif "open" in command:
             app = command.replace("open", "").strip()
             speak(f"Opening {app}")
@@ -65,7 +63,6 @@ def run_assistant():
             except:
                 speak("Application not found")
 
-        # ✅ Exit
         elif "exit" in command or "quit" in command:
             speak("Goodbye")
             time.sleep(1)
